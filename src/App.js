@@ -35,7 +35,7 @@ const CountdownTimer = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-red-500">
-      <div className="flex flex-col items-center justify-center bg-red-400 p-20">
+      <div className="flex flex-col items-center justify-center bg-red-400 p-20 rounded-lg">
         <div>
           <h1 className="text-9xl font-bold text-white mb-5">
             {minutes}:{doubleSecondDigits}
