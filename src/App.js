@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const CountdownTimer = () => {
   const [time, setTime] = useState(1500);
   const [isRunning, setIsRunning] = useState(false);
+  const sound = useRef(null);
 
   useEffect(() => {
     let timeInterval;
@@ -20,6 +21,10 @@ const CountdownTimer = () => {
 
   const handleStart = () => {
     setIsRunning((prev) => !prev);
+
+    if (sound.current) {
+      sound.current.play();
+    }
   };
 
   const handleReset = () => {
@@ -49,6 +54,13 @@ const CountdownTimer = () => {
             {isRunning ? "Stop" : "Start"}
           </button>
 
+          <audio
+            ref={sound}
+            id="audio"
+            src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
+          >
+            sad
+          </audio>
           <button
             className="bg-white text-red-500 font-bold rounded-sm p-3"
             onClick={handleReset}
